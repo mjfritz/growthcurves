@@ -102,8 +102,8 @@ class ValidateTable:
 			new_columns = columns
 		elif 'Time' in columns:
 			new_columns = columns
-			index = new_columns.index(self.time_column_label.capitalize())
-			new_columns[index] = self.time_column_label
+			c_index = new_columns.index(self.time_column_label.capitalize())
+			new_columns[c_index] = self.time_column_label
 		else:
 			message = f"Could not identify a time column from {list(columns)}"
 			raise ValueError(message)

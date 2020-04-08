@@ -101,9 +101,9 @@ def create_parser(args: List[str] = None):
 
 
 def main():
-	project_folder = Path.home() / "storage" / "projects" / "tils" / "growthcurves" / "debuggrowthcurves"
-	filename_table = project_folder / "2020-03-03-growthcurves.tsv"
-	output_folder = utilities.checkdir(project_folder / "typetest")
+	project_folder = Path.home() / "Documents" / "tilS"
+	filename_table = project_folder / "TilS_Ca_GC.tsv"
+	output_folder = utilities.checkdir(project_folder / "test")
 	current_args = [
 		'--output', str(output_folder),
 		'--control', 'RKS',
