@@ -6,6 +6,8 @@ import pandas
 import seaborn
 from loguru import logger
 import matplotlib
+matplotlib.rcParams['pdf.fonttype'] = 42 # Type 2/TrueType fonts for compatibility with Adobe Illustrator
+matplotlib.rcParams['ps.fonttype'] = 42
 
 class AnovaPlotNested:
 	""" Generates an anova plot with three variables: `x`, `y`, and `hue`"""
@@ -173,11 +175,14 @@ class AnovaPlotNested:
 	@staticmethod
 	def save_figure(ax: plt.Axes, filename: Path) -> plt.Axes:
 		""" Saves the current figure as both a png and svg file."""
+		""" Also saves Adobe Illustrator compatible pdf file."""
 
 		filename_svg = filename.with_suffix('.svg')
 		filename_png = filename.with_suffix('.png')
+		filename_pdf = filename.with_suffix('.pdf')
 		plt.savefig(filename_png, dpi = 500)
 		plt.savefig(filename_svg)
+		plt.savefig(filename_pdf, transparent=True)
 
 		return ax
 

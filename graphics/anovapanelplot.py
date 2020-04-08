@@ -4,6 +4,9 @@ from typing import *
 import matplotlib.pyplot as plt
 import pandas
 from loguru import logger
+import matplotlib
+matplotlib.rcParams['pdf.fonttype'] = 42 # Type 2/TrueType fonts for compatibility with Adobe Illustrator
+matplotlib.rcParams['ps.fonttype'] = 42
 
 try:
 	from .anovaplot import AnovaPlotNested
@@ -157,9 +160,11 @@ class AnovaPanelPlot:
 			filename_png = filename.with_suffix('.png')
 			plt.savefig(filename_png, dpi = 500)
 			plt.savefig(filename_svg)
+			filename_pdf = filename.with_suffix('.pdf')
+			plt.savefig(filename_pdf, transparent=TRUE)
 
 	def save_figure(self, ax: plt.Axes, filename: Path, ylims: Tuple[int, int]) -> plt.Axes:
-		""" Saves the current figure as both a png and svg file."""
+		""" Saves the current figure as both a png, svg, and pdf file."""
 		ymin = ylims[0] * 0.95
 		ymax = ylims[1] * 1.05
 
@@ -169,6 +174,8 @@ class AnovaPanelPlot:
 		filename_png = filename.with_suffix('.png')
 		plt.savefig(filename_png, dpi = 500)
 		plt.savefig(filename_svg)
+		filename_pdf = filename.with_suffix('.pdf')
+		plt.savefig(filename_pdf, transparent = TRUE)
 
 		return ax
 

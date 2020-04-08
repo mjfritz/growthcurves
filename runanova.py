@@ -85,7 +85,7 @@ def create_parser(args: List[str] = None):
 	)
 	parser.add_argument(
 		"--plot-growthcurves",
-		help = "Whether to plot the measured values and fitted logistic equation for every sample. This may take a very long time.",
+		help = "Whether to plot the measured valFues and fitted logistic equation for every sample. This may take a very long time.",
 		action = "store_true",
 		dest = "plotgrowthcurves"
 	)

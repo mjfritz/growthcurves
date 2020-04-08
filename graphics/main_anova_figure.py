@@ -6,6 +6,8 @@ import pandas
 import seaborn
 from loguru import logger
 import matplotlib
+matplotlib.rcParams['pdf.fonttype'] = 42 # Type 2/TrueType fonts for compatibility with Adobe Illustrator
+matplotlib.rcParams['ps.fonttype'] = 42
 
 plt.style.use('fivethirtyeight')
 plt.rcParams['svg.fonttype'] = 'none'
@@ -264,6 +266,7 @@ class GroupPlot:
 			logger.info(f"Saving as {filename}.")
 			plt.savefig(filename.with_suffix('.png'), facecolor = self.color_background)
 			plt.savefig(filename.with_suffix('.svg'), facecolor = self.color_background)
+			plt.savefig(filename.with_suffix('.pdf'), transparent=True)
 		else:
 			plt.show()
 
