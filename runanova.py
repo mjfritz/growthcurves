@@ -101,8 +101,8 @@ def create_parser(args: List[str] = None):
 
 
 def main():
-	project_folder = Path.home() / "Documents" / "tilS"
-	filename_table = project_folder / "TilS_Ca_GC.tsv"
+	project_folder = Path.home() / "Documents" / "tilS" # changed for different use
+	filename_table = project_folder / "TilS_Ca_GC.tsv" # changed for different use
 	output_folder = utilities.checkdir(project_folder / "test")
 	current_args = [
 		'--output', str(output_folder),
@@ -110,7 +110,7 @@ def main():
 		'--timelimit', '2400',
 		# '--plot-growthcurves',
 		'--empirical',
-		'--treatments', "RKS,Lys,Arg,Asp,Fe3+,Ile,Met,Phe,Trp",
+		'--treatments', "RKS, Int, Low", # changed for this specific plate
 		'--strains', "WT,A244T,N274Y,N455K,P421L,tRNA",
 		str(filename_table)
 	]
